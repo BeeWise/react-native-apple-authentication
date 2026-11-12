@@ -32,6 +32,10 @@
     "url": "https://github.com/invertase/react-native-apple-authentication"
   },
   "license": "Apache-2.0",
+  "files": [
+    "Package.swift",
+    "react-native-spm-prefix.h"
+  ],
   "keywords": [
     "react",
     "react-native",
