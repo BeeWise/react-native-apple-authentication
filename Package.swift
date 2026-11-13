@@ -14,10 +14,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "GoogleSignin",
+    name: "ReactNativeAppleAuthentication",
     platforms: [.iOS(.v15)],
     products: [
-        .library(name: "GoogleSignin", targets: ["GoogleSignin"]),
+        .library(name: "ReactNativeAppleAuthentication", targets: ["ReactNativeAppleAuthentication"]),
     ],
     dependencies: [
         .package(name: "ReactNative", path: "../../../../xcframeworks"),
@@ -25,23 +25,25 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "GoogleSignin",
+            name: "ReactNativeAppleAuthentication",
             dependencies: [.product(name: "ReactHeaders", package: "ReactNative"), .product(name: "ReactNativeHeaders", package: "ReactNative"), .product(name: "ReactNativeDependenciesHeaders", package: "ReactNative"), .product(name: "ReactAppHeaders", package: "React-GeneratedCode")],
             path: ".",
             sources: [
-                "ios/RCTConvert+RNGoogleSignin.h",
-                "ios/RCTConvert+RNGoogleSignin.mm",
-                "ios/RNGoogleSignInButton.h",
-                "ios/RNGoogleSignInButton.mm",
-                "ios/RNGoogleSignInButtonComponentView.h",
-                "ios/RNGoogleSignInButtonComponentView.mm",
-                "ios/RNGoogleSignin.h",
-                "ios/RNGoogleSignin.mm",
-                "ios/RNGoogleSigninButtonManager.mm",
+                "ios/RNAppleAuthentication/RCTConvert+ASAuthorizationAppleIDRequest.h",
+                "ios/RNAppleAuthentication/RCTConvert+ASAuthorizationAppleIDRequest.m",
+                "ios/RNAppleAuthentication/RNAppleAuthASAuthorizationDelegates.h",
+                "ios/RNAppleAuthentication/RNAppleAuthASAuthorizationDelegates.m",
+                "ios/RNAppleAuthentication/RNAppleAuthButtonView.h",
+                "ios/RNAppleAuthentication/RNAppleAuthButtonView.m",
+                "ios/RNAppleAuthentication/RNAppleAuthButtonViewManager.m",
+                "ios/RNAppleAuthentication/RNAppleAuthModule.h",
+                "ios/RNAppleAuthentication/RNAppleAuthModule.m",
+                "ios/RNAppleAuthentication/RNAppleAuthUtils.h",
+                "ios/RNAppleAuthentication/RNAppleAuthUtils.m",
             ],
             publicHeadersPath: "ios",
-            cSettings: [.headerSearchPath("ios"), .headerSearchPath("."), .unsafeFlags(["-include", "react-native-spm-prefix.h"])],
-            cxxSettings: [.headerSearchPath("ios"), .headerSearchPath("."), .unsafeFlags(["-include", "react-native-spm-prefix.h"]), .define("DEBUG", .when(configuration: .debug)), .define("NDEBUG", .when(configuration: .release))],
+            cSettings: [.headerSearchPath("ios/RNAppleAuthentication"), .headerSearchPath("."), .unsafeFlags(["-include", "react-native-spm-prefix.h"])],
+            cxxSettings: [.headerSearchPath("ios/RNAppleAuthentication"), .headerSearchPath("."), .unsafeFlags(["-include", "react-native-spm-prefix.h"]), .define("DEBUG", .when(configuration: .debug)), .define("NDEBUG", .when(configuration: .release))],
             linkerSettings: [.linkedFramework("UIKit"), .linkedFramework("Foundation"), .linkedFramework("CoreGraphics")]
         ),
     ],
